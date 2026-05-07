@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/Button"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -101,13 +102,12 @@ export default function LoginPage() {
                     onChange={(e) => setSenha(e.target.value)}
                 />
 
-                <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-[#99CB38] text-white p-2 rounded hover:bg-[#729928]"
+                <Button
+                  type="submit"
+                  disabled={loading}
                 >
-                    {loading ? "Entrando..." : "Entrar"}
-                </button>
+                  {loading ? "Entrando..." : "Entrar"}
+                </Button>
                 </form>
             </div>
             </div>
