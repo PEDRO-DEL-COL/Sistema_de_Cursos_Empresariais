@@ -1,3 +1,48 @@
+// Ícones SVG inline para cada tecnologia
+const skills = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}>
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+    title: "HTML, CSS",
+    subtitle: "e JavaScript",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}>
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 8v4l3 3" />
+      </svg>
+    ),
+    title: "React.js",
+    subtitle: "do básico ao avançado",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}>
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+      </svg>
+    ),
+    title: "Node.js e",
+    subtitle: "APIs REST",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}>
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </svg>
+    ),
+    title: "Banco de Dados",
+    subtitle: "e Deploy",
+  },
+]
+
 type CourseAboutProps = {
   course: {
     title: string
@@ -5,259 +50,54 @@ type CourseAboutProps = {
   }
 }
 
-export function CourseAbout({
-  course,
-}: CourseAboutProps) {
+export function CourseAbout({ course }: CourseAboutProps) {
   return (
+    <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-8">
 
-    <div
-      className="
-        bg-white
-        rounded-3xl
-        border
-        border-black/5
-        shadow-sm
-        p-8
-      "
-    >
+      {/* SOBRE */}
+      <h2 className="text-xl font-bold text-[#1F2E27] mb-3">
+        Sobre o curso
+      </h2>
+      <p className="text-gray-600 leading-relaxed mb-8">
+        Este curso foi criado para quem deseja dominar o desenvolvimento
+        web completo. Você aprenderá as principais tecnologias do mercado,
+        construindo projetos reais e desenvolvendo habilidades práticas
+        para se tornar um desenvolvedor completo.
+      </p>
 
-      {/* HEADER */}
-      <div className="mb-8">
+      {/* O QUE VOCÊ VAI APRENDER */}
+      <h2 className="text-xl font-bold text-[#1F2E27] mb-4">
+        O que você vai aprender
+      </h2>
 
-        <span
-          className="
-            inline-flex
-            items-center
-            bg-[#E8F5CC]
-            text-[#47662E]
-            font-semibold
-            text-sm
-            px-4
-            py-2
-            rounded-full
-            mb-5
-          "
-        >
-          Sobre o curso
-        </span>
-
-        <h2
-          className="
-            text-4xl
-            font-black
-            text-[#1F2E27]
-            leading-tight
-            mb-5
-          "
-        >
-          Aprenda {course.title}
-          <br />
-          de forma prática
-        </h2>
-
-        <p
-          className="
-            text-gray-600
-            text-lg
-            leading-relaxed
-            max-w-[850px]
-          "
-        >
-          Este treinamento foi desenvolvido para capacitar
-          colaboradores através de uma abordagem moderna,
-          prática e totalmente aplicada ao ambiente corporativo.
-          O conteúdo combina teoria, exemplos reais e atividades
-          voltadas para desenvolvimento profissional contínuo.
-        </p>
-
-      </div>
-
-      {/* GRID DE SKILLS */}
-      <div className="grid grid-cols-2 gap-5">
-
-        {/* SKILL */}
-        <div
-          className="
-            rounded-2xl
-            border
-            border-black/5
-            bg-[#F8F7F2]
-            p-6
-          "
-        >
-
+      <div className="grid grid-cols-2 gap-3">
+        {skills.map((skill, i) => (
           <div
+            key={i}
             className="
-              w-14
-              h-14
-              rounded-2xl
-              bg-[#99CB38]
-              flex
-              items-center
-              justify-center
-              text-2xl
-              mb-5
+              flex items-center gap-4
+              rounded-2xl border border-black/5
+              bg-[#F8F7F2] px-5 py-4
             "
           >
-            🚀
+            {/* ÍCONE */}
+            <div className="
+              w-11 h-11 rounded-xl bg-[#E8F5CC]
+              text-[#47662E] flex items-center justify-center shrink-0
+            ">
+              {skill.icon}
+            </div>
+            {/* TEXTO */}
+            <div>
+              <p className="font-semibold text-[#1F2E27] leading-tight">
+                {skill.title}
+              </p>
+              <p className="text-sm text-gray-500">{skill.subtitle}</p>
+            </div>
           </div>
-
-          <h3
-            className="
-              text-xl
-              font-bold
-              text-[#1F2E27]
-              mb-3
-            "
-          >
-            Conteúdo Atualizado
-          </h3>
-
-          <p className="text-gray-600 leading-relaxed">
-            Material constantemente revisado para acompanhar
-            práticas modernas do mercado.
-          </p>
-
-        </div>
-
-        {/* SKILL */}
-        <div
-          className="
-            rounded-2xl
-            border
-            border-black/5
-            bg-[#F8F7F2]
-            p-6
-          "
-        >
-
-          <div
-            className="
-              w-14
-              h-14
-              rounded-2xl
-              bg-[#99CB38]
-              flex
-              items-center
-              justify-center
-              text-2xl
-              mb-5
-            "
-          >
-            🎯
-          </div>
-
-          <h3
-            className="
-              text-xl
-              font-bold
-              text-[#1F2E27]
-              mb-3
-            "
-          >
-            Aplicação Prática
-          </h3>
-
-          <p className="text-gray-600 leading-relaxed">
-            Exercícios e exemplos focados em situações reais
-            do ambiente corporativo.
-          </p>
-
-        </div>
-
-        {/* SKILL */}
-        <div
-          className="
-            rounded-2xl
-            border
-            border-black/5
-            bg-[#F8F7F2]
-            p-6
-          "
-        >
-
-          <div
-            className="
-              w-14
-              h-14
-              rounded-2xl
-              bg-[#99CB38]
-              flex
-              items-center
-              justify-center
-              text-2xl
-              mb-5
-            "
-          >
-            📚
-          </div>
-
-          <h3
-            className="
-              text-xl
-              font-bold
-              text-[#1F2E27]
-              mb-3
-            "
-          >
-            Módulos Organizados
-          </h3>
-
-          <p className="text-gray-600 leading-relaxed">
-            Estrutura dividida em etapas para facilitar
-            o aprendizado progressivo.
-          </p>
-
-        </div>
-
-        {/* SKILL */}
-        <div
-          className="
-            rounded-2xl
-            border
-            border-black/5
-            bg-[#F8F7F2]
-            p-6
-          "
-        >
-
-          <div
-            className="
-              w-14
-              h-14
-              rounded-2xl
-              bg-[#99CB38]
-              flex
-              items-center
-              justify-center
-              text-2xl
-              mb-5
-            "
-          >
-            🏆
-          </div>
-
-          <h3
-            className="
-              text-xl
-              font-bold
-              text-[#1F2E27]
-              mb-3
-            "
-          >
-            Certificação
-          </h3>
-
-          <p className="text-gray-600 leading-relaxed">
-            Emissão de certificado interno após a conclusão
-            completa do treinamento.
-          </p>
-
-        </div>
-
+        ))}
       </div>
 
     </div>
-
   )
 }
