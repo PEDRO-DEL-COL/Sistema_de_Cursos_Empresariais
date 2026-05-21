@@ -32,6 +32,13 @@ export default async function CoursePage({
     notFound()
   }
 
+  /* -------------------------- */
+  /* PRIMEIRA AULA */
+  /* -------------------------- */
+
+  const firstLesson =
+    course.modules[0]?.lessons[0]
+
   return (
     <main className="flex min-h-screen bg-[#F3F0E6]">
 
@@ -93,7 +100,11 @@ export default async function CoursePage({
             <div className="col-span-4 flex flex-col gap-8">
 
               {/* PROGRESSO */}
-              <CourseProgress progress={35} />
+              <CourseProgress
+                courseId={course.id}
+                lessonId={firstLesson?.id}
+                progress={course.progress}
+              />
 
               {/* INFORMAÇÕES */}
               <CourseInfo course={course} />
